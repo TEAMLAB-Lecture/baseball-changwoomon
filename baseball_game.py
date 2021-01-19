@@ -300,23 +300,26 @@ def main():
         sb_score = get_strikes_or_ball(user_input, random_number)
         if sb_score[0] != 3:
             print("Strickes : {} , Balls : {}".format(sb_score[0], sb_score[1]))
-            print("Wrong Input, Input again")
             continue
         elif sb_score[0] == 3:
             break
+    say_bye = False
     while True:
         one_more = input("You win, one more(Y/N)?")
         if is_yes(one_more):
+            say_bye = False
             main()
             break
         elif is_no(one_more):
+            say_bye = True
             break
         else:
             print("Wrong Input, Input again")
             continue
     # ==================================
-    print("Thank you for using this program")
-    print("End of the Game")
+    if say_bye:
+        print("Thank you for using this program")
+        print("End of the Game")
 
 if __name__ == "__main__":
     main()
