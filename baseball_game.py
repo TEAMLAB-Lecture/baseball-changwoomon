@@ -299,6 +299,7 @@ def main():
             continue
         sb_score = get_strikes_or_ball(user_input, random_number)
         if sb_score[0] != 3:
+            print("Strickes : {} , Balls : {}".format(sb_score[0], sb_score[1]))
             print("Wrong Input, Input again")
             continue
         elif sb_score[0] == 3:
