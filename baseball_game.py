@@ -300,8 +300,8 @@ def main():
             print("Wrong Input, Input again")
             continue
         sb_score = get_strikes_or_ball(user_input, random_number)
+        print("Strickes : {} , Balls : {}".format(sb_score[0], sb_score[1]))
         if sb_score[0] != 3:
-            print("Strickes : {} , Balls : {}".format(sb_score[0], sb_score[1]))
             continue
         elif sb_score[0] == 3:
             break
