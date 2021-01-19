@@ -291,11 +291,9 @@ def main():
     # ===Modify codes below=============
     # 위의 코드를 포함하여 자유로운 수정이 가능함
     cond = True
-    say_bye = False
     while cond:
         user_input = input('Input guess number : ')
         if user_input == str(0):
-            say_bye = True
             cond = False
             break
         if not is_validated_number(user_input):
@@ -309,7 +307,6 @@ def main():
             while True:
                 one_more = input("You win, one more(Y/N)?")
                 if one_more == str(0):
-                    say_bye = True
                     cond = False
                     break
                 if is_yes(one_more):
@@ -318,16 +315,14 @@ def main():
                     print("Random Number is : ", random_number)
                     break
                 elif is_no(one_more):
-                    say_bye = True
                     cond = False
                     break
                 else:
                     print("Wrong Input, Input again")
                     continue
     # ==================================
-    if say_bye:
-        print("Thank you for using this program")
-        print("End of the Game")
+    print("Thank you for using this program")
+    print("End of the Game")
 
 if __name__ == "__main__":
     main()
