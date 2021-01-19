@@ -290,11 +290,13 @@ def main():
     print("Random Number is : ", random_number)
     # ===Modify codes below=============
     # 위의 코드를 포함하여 자유로운 수정이 가능함
-    not_enter_0 = True
-    while True:
+    cond = True
+    say_bye = False
+    while cond:
         user_input = input('Input guess number : ')
         if user_input == str(0):
-            not_enter_0 = False
+            say_bye = True
+            cond = False
             break
         if not is_validated_number(user_input):
             print("Wrong Input, Input again")
@@ -304,25 +306,24 @@ def main():
         if sb_score[0] != 3:
             continue
         elif sb_score[0] == 3:
-            break
-    say_bye = True
-    if not_enter_0:
-        while True:
-            one_more = input("You win, one more(Y/N)?")
-            if one_more == str(0):
-                say_bye = True
-                not_enter_0 = False
-                break
-            if is_yes(one_more):
-                say_bye = False
-                main()
-                break
-            elif is_no(one_more):
-                say_bye = True
-                break
-            else:
-                print("Wrong Input, Input again")
-                continue
+            while True:
+                one_more = input("You win, one more(Y/N)?")
+                if one_more == str(0):
+                    say_bye = True
+                    cond = False
+                    break
+                if is_yes(one_more):
+                    user_input = 999
+                    random_number = str(get_not_duplicated_three_digit_number())
+                    print("Random Number is : ", random_number)
+                    break
+                elif is_no(one_more):
+                    say_bye = True
+                    cond = False
+                    break
+                else:
+                    print("Wrong Input, Input again")
+                    continue
     # ==================================
     if say_bye:
         print("Thank you for using this program")
